@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    
+        let canvas = document.querySelector('#canvas');
+        let context = canvas.getContext('2d');
+
+        context.beginPath(); // 开始路径
+        
+        context.moveTo(40, 40); // 设置路径起点
+        context.lineTo(340, 40); // 设置路径终点
+        
+
+        context.closePath(); // 结束路径
+        context.stroke(); // 描绘路径轮廓
+        
+        context.beginPath();
+        context.moveTo(40, 40);
+        context.lineTo(300, 300);
+        
+        context.closePath();
+        context.stroke();
+        
+        
+        
+    </script>
+</body>
+</html>

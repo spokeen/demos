@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- canvas 默认 宽 300 高 150 -->
+    <!-- 在 IE 上运行需要 explorerCanvas 库 -->
+    <!-- canvas 为 2d 上下文的包装器 -->
+    <canvas id="canvas" width="500" height="500">
+        <p>不支持</p>
+    </canvas>
+    <!-- 采用笛卡尔坐标系，左上角是远点，右为 X 轴正方向，下为 y 轴正方向 -->
+    <!-- （20，34）（右20像素，下34像素）一个单位相当于屏幕一个像素 ，高分辨率中是 两个像素-->
+    <script src="jq.js"></script>
+    <script>
+        $(document).ready(() => {
+            let canvas = document.getElementById('canvas');
+            let context = canvas.getContext('2d');
+            // (x,y,width,height) 
+            context.fillRect(40,40,100,100);
+            // 绘制并填充
+            context.fillRect(200,200,30,30);
+            // 绘制并描边
+            context.strokeRect(300, 300, 30, 30);
+            
+        })
+    
+    </script>
+</body>
+</html>

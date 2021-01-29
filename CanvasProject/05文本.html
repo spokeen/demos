@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+    let text = 'hello world';
+    context.font='20px sans-serif';
+    context.fillText(text, 10, 100);
+   
+    // 创建描边文字
+
+    context.font='60px sans-serif';
+    context.strokeText(text, 200, 100);
+    
+    
+    </script>
+</body>
+</html>

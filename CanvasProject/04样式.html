@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        let canvas = document.querySelector('#canvas');
+        let context = canvas.getContext('2d');
+        // 设置 形状 填充颜色
+        context.fillStyle='rgb(255,0,0)';
+        context.fillRect(10,10,100,100);
+        
+
+        // 设置路径的填充色
+        context.strokeStyle='green';
+        
+        context.beginPath();
+        context.moveTo(300,300);
+        context.lineTo(400,400);
+        context.closePath();
+
+        // 设置路径的宽度
+        context.lineWidth = 10;
+        context.stroke();
+
+
+        context.strokeRect(200, 200, 100, 100);
+        
+        
+    </script>
+</body>
+</html>

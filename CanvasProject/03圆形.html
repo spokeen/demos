@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        let canvas = document.querySelector('#canvas');
+        let context = canvas.getContext('2d');
+
+        context.beginPath();
+        // 角度以弧度为单位，  360度 对应 2π 弧度
+        context.arc(250, 90, 50, 0, Math.PI / 180 * 360, false);
+        context.closePath();
+        context.fill();
+
+
+        // 半圆
+
+        context.beginPath();
+        context.arc(300,300,50,0,Math.PI, false);
+        context.closePath();
+        context.fill();
+    </script>
+</body>
+</html>
