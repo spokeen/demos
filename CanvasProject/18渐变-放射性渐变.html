@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+    // 放射性渐变
+    
+    let otherGradient = context.createRadialGradient(300,300,10,100,100,50);
+    otherGradient.addColorStop(0,'#000');
+    otherGradient.addColorStop(1,'#fff');
+    context.fillStyle = otherGradient;
+    context.fillRect(0,0,500,500)
+
+    context.clearRect(0,0,500,500);
+    let otherGradient1 = context.createRadialGradient(300,300,100,300,300,150);
+    otherGradient1.addColorStop(0,'#000');
+    otherGradient1.addColorStop(1,'#fff');
+    context.fillStyle = otherGradient1;
+    context.fillRect(0,0,500,500)
+
+    </script>
+</body>
+</html>

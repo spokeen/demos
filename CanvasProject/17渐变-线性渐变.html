@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+    /*
+        fillStyle 和 strokeStyle 都能接受 CanvasGradient 表示的渐变颜色
+    */
+
+    // 线性渐变
+    // createLinearGradient(渐变起点坐标 x,y ，渐变终点坐标x,y)
+    let gradient = context.createLinearGradient(0, 0, 500, 500);
+    gradient.addColorStop(0, '#000'); // 0 表示起点
+    gradient.addColorStop(1, '#fff'); // 1 表示终点
+
+    context.fillStyle = gradient;
+    context.fillRect(0,0,500,500)
+    </script>
+</body>
+</html>
