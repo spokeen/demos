@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+
+
+    /**
+     描绘 绘图状态 的全部属性：变换矩阵、剪裁区域、global-Aplpha, globalCompositeOperation,strokeStyle,fillStyle,lineWidth
+            lineCap,lineJoin,miterLimit,shadowOffsetX,shadowOffsetY,shadowBlur,shadowColor,font,textAlign
+            textBaseline
+    
+    绘图状态：应该看做渲染上下文的属性的描述，而不是画布上内容的副本
+    
+    */
+
+
+    context.fillStyle = 'red';
+    context.save(); // 保存 绘图状态
+    context.fillRect(10,10,100,100);
+
+    context.fillStyle = 'blue';
+    context.fillRect(200,200,100,100);
+
+    context.restore(); // 回复 绘图状态
+    context.fillRect(300,100,100,100);
+    </script>
+</body>
+</html>

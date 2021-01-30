@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+    
+    /*
+        旋转：是将上下文的绕其原点进行旋转,而不是针对图像
+        旋转对已经绘制的图形没有影响
+    
+    */
+
+
+    //  要考虑变形的执行顺序,不通顺序有不同的结果
+    context.translate(200,200);
+    context.rotate(Math.PI / 4);
+    context.fillRect(-50,-50,100,100);
+    </script>
+</body>
+</html>

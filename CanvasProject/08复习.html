@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+    context.fillStyle = 'red';
+    context.fillRect(10,10,100,100);
+
+    context.strokeStyle = 'blue';
+    context.strokeRect(120,10,100,100);
+
+    context.strokeStyle = '#000s';
+    context.beginPath();
+    context.moveTo(10,120);
+    context.lineTo(120,120);
+    context.closePath();
+    context.stroke();
+
+    context.beginPath();
+    context.arc(200,200, 50, 0 , Math.PI * 2, false);
+    context.closePath();
+    context.fill();
+
+    let text = 'hello world';
+    context.font='90px sans-serif';
+    context.strokeText(text, 300, 300);
+
+    context.fillText(text, 300,400);
+
+
+    context.clearRect(200,200,50,50);
+    
+    </script>
+</body>
+</html>

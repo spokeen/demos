@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+    //  一个图形叠加到另一图形之上，称为 源覆盖于目标之上, 源 是绘制的新图形
+    // globalCompositeOperation 支持 11 中合成方式
+
+    // 1、source-over 默认值 : 源覆盖于目标之上
+    context.fillStyle = 'rgb(63,169,245)';
+    context.fillRect(50,50,100,100);
+    context.globalCompositeOperation = 'source-over';
+    context.fillStyle = 'rgb(255,123,172)';
+    context.fillRect(100,100,100,100)
+    // 2、destination-over ：目标覆盖于源之上
+    context.fillStyle = 'rgb(63,169,245)';
+    context.fillRect(50,50,100,100);
+    context.globalCompositeOperation = 'destination-over';
+    context.fillStyle = 'rgb(255,123,172)';
+    context.fillRect(100,100,100,100)
+    // 3、 source-atop : 源绘制在重叠区域不透明，不重叠区域透明
+    context.fillStyle = 'rgb(63,169,245)';
+    context.fillRect(50,50,100,100);
+    context.globalCompositeOperation = 'source-atop';
+    context.fillStyle = 'rgb(255,123,172)';
+    context.fillRect(100,100,100,100)
+    // 4、destination-atop : 目标绘制在重叠区域不透明，不重叠区域透明
+    context.fillStyle = 'rgb(63,169,245)';
+    context.fillRect(50,50,100,100);
+    context.globalCompositeOperation = 'destination-atop';
+    context.fillStyle = 'rgb(255,123,172)';
+    context.fillRect(100,100,100,100);
+    // 5、source-in : 重叠区域只绘制源，非重叠区域透明
+    context.fillStyle = 'rgb(63,169,245)';
+    context.fillRect(50,50,100,100);
+    context.globalCompositeOperation = 'source-in';
+    context.fillStyle = 'rgb(255,123,172)';
+    context.fillRect(100,100,100,100);
+    // 6、destination-in : 重叠区域只绘制目标，非重叠区域透明
+    context.fillStyle = 'rgb(63,169,245)';
+    context.fillRect(50,50,100,100);
+    context.globalCompositeOperation = 'destination-in';
+    context.fillStyle = 'rgb(255,123,172)';
+    context.fillRect(100,100,100,100);
+    // 7、source-out : 只绘制非重叠区域的源，目标变透明
+    context.fillStyle = 'rgb(63,169,245)';
+    context.fillRect(50,50,100,100);
+    context.globalCompositeOperation = 'source-out';
+    context.fillStyle = 'rgb(255,123,172)';
+    context.fillRect(100,100,100,100);
+    // 8、destiation-out : 只绘制非重叠区域的目标，源变透明
+    // context.fillStyle = 'rgb(63,169,245)';
+    // context.fillRect(50,50,100,100);
+    // context.globalCompositeOperation = 'destination-out';
+    // context.fillStyle = 'rgb(255,123,172)';
+    // context.fillRect(100,100,100,100);
+    // 9、lighter : 如果源和目标 重合区域的 颜色值相加，最大值为255
+    context.fillStyle = 'rgb(255,0,0)';
+    context.fillRect(250,250,100,100);
+    context.globalCompositeOperation = 'lighter';
+    context.fillStyle = 'rgb(0,255,0)';
+    context.fillRect(300,300,100,100);
+    // 10 copy：只绘制源，覆盖掉目标
+    context.fillStyle = 'rgb(63,169,245)';
+    context.fillRect(50,50,100,100);
+    context.globalCompositeOperation = 'copy';
+    context.fillStyle = 'rgb(255,123,172)';
+    context.fillRect(100,100,100,100);
+    // 11、xor ：只绘制源与目标不重合的部分，重叠部分透明
+    context.fillStyle = 'rgb(63,169,245)';
+    context.fillRect(50,50,100,100);
+    context.globalCompositeOperation = 'xor';
+    context.fillStyle = 'rgb(255,123,172)';
+    context.fillRect(100,100,100,100);
+    </script>
+</body>
+</html>

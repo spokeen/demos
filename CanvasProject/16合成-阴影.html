@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+    /*
+        控制阴影的属性，这些属性都是全局的：
+        shadowBlur : 模糊效果
+        shadowOffsetX
+        shadowOffsetY
+        shadowColor
+    */
+
+    context.shadowBlur = 20;
+    context.shadowColor = '#000';
+    context.fillRect(100,100,100,100)
+
+    context.shadowBlur = 0;
+    context.shadowOffsetX = 20;
+    context.shadowOffsetY = 20;
+    context.shadowColor='red';
+    context.fillRect(300,100,100,100);
+
+
+
+    // 给任意图形添加阴影
+    context.shadowBlur = 20;
+    context.shadowColor = '#289';
+    context.shadowOffsetX = 0;
+    context.shadowOffsetY = 0;
+    context.beginPath();
+    context.arc(300,300,50,0, Math.PI * 2, false);
+    context.closePath();
+    context.fill();
+    
+    </script>
+</body>
+</html>

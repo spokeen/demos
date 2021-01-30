@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+    /*
+    
+        a c e
+        b d f
+        0 0 1
+
+    变换矩阵格式
+    -------             ------
+    | x轴缩放  x轴旋转  x轴平移  |
+    | y轴旋转  y轴缩放  y轴平移  |
+    |   0       0       1     |
+    -------             -------
+    
+    第三行的值不能修改
+    
+    单位矩阵：
+
+    1 0 0
+    0 1 0
+    0 0 1
+    
+    
+    
+    */
+
+    // transform 是将现有矩阵乘以你所指定的值，而不是直接设置变换矩阵的值
+    context.transform(2,0,0,2,150,150);
+    context.fillRect(0,0,100,100);
+
+
+    context.setTransform(1,0,0,1,0,0); // 重置为单位矩阵，消除之前变形的影响
+    let value = Math.PI / 4;
+    let xScale = Math.cos(value);
+    let ySkew = -Math.sin(value);
+    let xSkew = Math.sin(value);
+    let yScale = Math.cos(value);
+    console.log(xScale,ySkew,xSkew,yScale);
+    context.transform(xScale,ySkew,xSkew,yScale,200,200);
+    context.fillRect(-150,-150,100,100)
+    </script>
+</body>
+</html>

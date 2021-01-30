@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+    /*
+        缩放：是对上下文的 x 轴和 y 轴进行缩放，而不是对图形缩放
+        缩放对已经绘制的图形不会产生影响
+    */
+
+    context.scale(1,1);
+    context.save();
+    context.fillRect(10,10,100,100);
+
+    context.scale(2,2);
+
+    context.fillRect(100,100,100,100)
+
+    context.restore();
+    context.fillRect(200,0,100,100)
+    </script>
+</body>
+</html>
