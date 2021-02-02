@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+
+    let imgData = context.createImageData(500,500);
+    let pixls = imgData.data;
+
+
+    let row = 10,col = 10;
+    let zrow  = imgData.width / row, 
+    zcol = imgData.height / col;
+    for(let j = 0; j < row;j++) {
+        for(let i =0; i <col; i++) {
+            let red = Math.floor(Math.random() *255),
+            green =  Math.floor(Math.random() *255),
+            blue =  Math.floor(Math.random() *255);
+
+            for(let index =0 ;index < zrow; index++) {
+                for(let index2 =0 ;index2 < zcol; index2++) {
+                    let realX = i * (zrow) + index2;
+                    let realY = j * (zcol) + index;
+                    let pos = (realY * (imgData.width * 4)) + realX * 4;
+                    
+                    pixls[pos] = red;
+                    pixls[pos+1] = green;
+                    pixls[pos+2] = blue;
+                    pixls[pos+3] = 255;
+                }
+            }
+        }
+    }
+
+    context.putImageData(imgData, 0,0)
+    </script>
+</body>
+</html>
