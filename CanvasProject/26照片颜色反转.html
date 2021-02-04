@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+
+    let img = new Image();
+    img.src = 'WechatIMG1.jpeg';
+    img.onload = function() {
+        context.drawImage(img,0,0,500,500);
+
+        let imgData = context.getImageData(0,0,500,500);
+
+        for(let i =0; i < imgData.data.length; i+=4) {
+            imgData.data[i] = 255 - imgData.data[i];
+            imgData.data[i+1] = 255 - imgData.data[i+1];
+            imgData.data[i+2] = 255 - imgData.data[i+2];
+        }
+
+
+        context.putImageData(imgData,0,0);
+    }
+    </script>
+</body>
+</html>

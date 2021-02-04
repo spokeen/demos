@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+    let img = new Image();
+    img.src = 'WechatIMG1.jpeg';
+    img.onload = function() {
+        context.drawImage(img, 0, 0, 500, 500);
+        let imgData = context.getImageData(0,0,500,500);
+        let data = imgData.data;
+        let rowNum = 500, colNum = 500;
+        let num = 500 / rowNum;
+        for(let row = 0; row < rowNum; row++) {
+            for(let col = 0; col < colNum; col++) {
+                let pos = (row * col + col) * num ;
+                let red = data[pos];
+                let green = data[pos+1];
+                let blue = data[pos+2];
+                context.fillStyle = `rgb(${red},${green},${blue})`;
+                context.fillRect(row * col, col , num, num )
+            }
+        }
+
+    }
+    </script>
+</body>
+</html>
