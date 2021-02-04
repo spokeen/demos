@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+    
+    let reverse  = false;
+
+    let p = {
+        x: 100,
+        y: 100,
+        width: 10,
+        height: 10
+    }
+    function animate() {
+
+        context.clearRect(0,0,500,500);
+        context.fillRect(p.x, p.y, p.width,p.height);
+        if(p.x > 500 - p.width) {
+            reverse = true;
+        }
+        if(p.x < p.width) {
+            reverse = false;
+        }
+
+        if(reverse) {
+            p.x--;
+        } else {
+            p.x++;
+        }
+        setTimeout(animate, 16.6);
+    }
+
+    setTimeout(animate, 16.6);
+    </script>
+</body>
+</html>

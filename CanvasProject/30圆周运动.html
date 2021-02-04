@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+    setTimeout(animate, 16.6);
+
+    function Shape(x,y,width,height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.r = 50;
+        this.angle = 0;
+    }
+
+    let p = new Shape(100,100,10,10);
+
+    function animate() {
+        context.clearRect(0,0,500,500);
+        update();
+
+        let x = p.x + (p.r * Math.cos(p.angle * ra()));
+        let y = p.y + (p.r * Math.sin(p.angle * ra()));
+        
+
+        context.fillRect(x,y,p.width,p.height);
+        setTimeout(animate, 16.6);
+    }
+
+
+
+    function ra() {
+        return Math.PI / 180;
+    }
+    function update() {
+        p.angle++;
+        if(p.angle > 360) {
+            p.angle = 0;
+        }
+    }
+
+    </script>
+</body>
+</html>
