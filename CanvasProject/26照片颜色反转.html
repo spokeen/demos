@@ -17,24 +17,23 @@
     let canvas = document.querySelector('#canvas');
     let context = canvas.getContext('2d');
 
-    
-    // 1、 quadraticCurveTo ：二次贝塞尔曲线
 
-    context.lineWidth = 5;
-    context.beginPath();
-    context.moveTo(50,50);
-    context.quadraticCurveTo(250,100,450,50);
-    // context.closePath();
-    context.stroke();
+    let img = new Image();
+    img.src = 'WechatIMG1.jpeg';
+    img.onload = function() {
+        context.drawImage(img,0,0,500,500);
+
+        let imgData = context.getImageData(0,0,500,500);
+
+        for(let i =0; i < imgData.data.length; i+=4) {
+            imgData.data[i] = 255 - imgData.data[i];
+            imgData.data[i+1] = 255 - imgData.data[i+1];
+            imgData.data[i+2] = 255 - imgData.data[i+2];
+        }
 
 
-    // 2、 bezierCurveTo  三次贝塞尔曲线
-
-        context.beginPath();
-        context.moveTo(50,250);
-        context.bezierCurveTo(150,50,350,450,450,250);
-        context.stroke();
-
+        context.putImageData(imgData,0,0);
+    }
     </script>
 </body>
 </html>

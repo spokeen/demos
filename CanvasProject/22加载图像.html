@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+    let canvas = document.querySelector('#canvas');
+    let context = canvas.getContext('2d');
+
+    let img = new Image();
+    img.src = 'WechatIMG1.jpeg';
+    img.onload = () => {
+        // drawImage 第一个参数可以是  img 元素、canvas 元素、video 元素
+        context.drawImage(img, 10,10); // 图片大小原样输出
+
+        context.drawImage(img, 10, 10, 100,150) // 设置图片大小
+        // drawImage(源图像，源裁剪区原点，源裁剪区宽高，绘制图像的原点，绘制图像的宽高)
+        context.clearRect(0,0,500,500);
+        context.drawImage(img, 100,100,100,100, 100,100,100,100);
+    }
+    </script>
+</body>
+</html>
