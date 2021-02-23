@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>My spending record</title>
+    <link href="minimal-table.css" rel="stylesheet" type="text/css">
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 2px solid rgb(200, 200, 200);
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+        }
+
+        td,
+        th {
+            border: 1px solid rgb(190, 190, 190);
+            padding: 10px 20px;
+        }
+
+        th {
+            background-color: rgb(235, 235, 235);
+        }
+
+        td {
+            text-align: center;
+        }
+
+        tr:nth-child(even) td {
+            background-color: rgb(250, 250, 250);
+        }
+
+        tr:nth-child(odd) td {
+            background-color: rgb(245, 245, 245);
+        }
+
+        caption {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My spending record</h1>
+
+    <table>
+            <caption>How I chose to spend my money</caption>
+            <thead>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <th colspan="3" scope="colgroup">Clothes</th>
+                      <th colspan="2" scope="colgroup">Accessories</th>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <th scope="col">Trousers</th>
+                      <th scope="col">Skirts</th>
+                      <th scope="col">Dresses</th>
+                      <th scope="col">Bracelets</th>
+                      <th scope="col">Rings</th>
+                    </tr>
+                  </thead>
+
+        <tfoot>
+            <tr>
+                <td colspan="4">SUM</td>
+                <td>118</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <!-- scope 表示这列   是列标题 或 行标题 -->
+                <!-- 可以使用 id + headers 属性 替代 scope -->
+                <th scope="col">Purchase</th>
+                <th id="location">Location</th>
+                <th>Date</th>
+                <th>Evaluation</th>
+                <th>Cost (€)</th>
+            </tr>
+            <tr>
+                <th id="haircut"  scope="row">Haircut</th>
+                <!-- 从属于多列，则将多个以空格隔开 -->
+                <td headers="location haircut">Hairdresser</td>
+                <td>12/09</td>
+                <td>Great idea</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>Lasagna</td>
+                <td>Restaurant</td>
+                <td>12/09</td>
+                <td>Regrets</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>Shoes</td>
+                <td>Shoeshop</td>
+                <td>13/09</td>
+                <td>Big regrets</td>
+                <td>65</td>
+            </tr>
+            <tr>
+                <td>Toothpaste</td>
+                <td>Supermarket</td>
+                <td>13/09</td>
+                <td>Good</td>
+                <td>5</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

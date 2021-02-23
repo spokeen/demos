@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <colgroup>
+            <col>
+        </colgroup>
+
+        <!-- 
+            thead,tfoor 相当于 tr
+            thead 要在 colgroup 之后
+
+         -->
+        <thead>
+            <th>标题1</th>
+            <th>标题2</th>
+        </thead>
+        <!-- 浏览器会自动将 tfoot 放到   tbdoy 之后 -->
+        <tfoot> 
+            <td>内容1</td>
+            <td>内容2</td>
+        </tfoot>
+        <tbody>
+            <tr>
+                    <td>内容1</td>
+                    <td>内容1</td>
+            </tr>
+        </tbody>
+        
+    </table>
+</body>
+</html>
